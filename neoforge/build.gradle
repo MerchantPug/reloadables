@@ -37,8 +37,15 @@ runs {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+repositories {
+    mavenLocal()
+}
+
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
+
+    modImplementation "dev.greenhousteam.reloadabledatapackregistries:reloadabledatapackregistries-neoforge:${rdpr_version}:api"
+
     compileOnly project(":common")
 }
 
