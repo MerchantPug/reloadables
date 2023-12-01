@@ -44,7 +44,7 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
 
-    modImplementation "dev.greenhousteam.reloadabledatapackregistries:reloadabledatapackregistries-neoforge:${rdpr_version}:api"
+    implementation "dev.greenhousteam.reloadabledatapackregistries:reloadabledatapackregistries-neoforge:${rdpr_version}:api"
 
     compileOnly project(":common")
 }
