@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.LineContains
+
 plugins {
     id 'idea'
     id 'maven-publish'
@@ -44,7 +46,10 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
 
-    implementation "dev.greenhousteam.reloadabledatapackregistries:reloadabledatapackregistries-neoforge:${rdpr_version}:api"
+    compileOnly "dev.greenhouseteam.rdpr:rdpr-neoforge:${rdpr_version}:api"
+    runtimeOnly(jarJar("dev.greenhouseteam.rdpr:rdpr-neoforge:${rdpr_version}")) {
+        jarJar.ranged(it, "[${rdpr_version},)")
+    }
 
     compileOnly project(":common")
 }
@@ -66,6 +71,10 @@ tasks.named("sourcesJar", Jar) {
 
 tasks.withType(ProcessResources).matching(notNeoTask).configureEach {
     from project(":common").sourceSets.main.resources
+
+    filesMatching("*.mixins.json") {
+        filter(LineContains, negate: true, contains: ['refmap' ] )
+    }
 }
 
 publishing {

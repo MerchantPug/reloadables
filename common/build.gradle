@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
-    compileOnly "dev.greenhousteam.reloadabledatapackregistries:reloadabledatapackregistries-common:${rdpr_version}:api"
+    compileOnly "dev.greenhouseteam.rdpr:rdpr-common:${rdpr_version}:api"
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
 }
 
