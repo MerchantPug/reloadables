@@ -8,6 +8,9 @@ base {
     archivesName = "${mod_name}-fabric-${minecraft_version}"
 }
 repositories {
+    maven {
+        url "https://maven.merchantpug.net/releases/"
+    }
     mavenLocal()
 }
 dependencies {
@@ -19,6 +22,8 @@ dependencies {
 
     modCompileOnly("dev.greenhouseteam.rdpr:rdpr-fabric:${rdpr_version}:api")
     modRuntimeOnly(include("dev.greenhouseteam.rdpr:rdpr-fabric:${rdpr_version}"))
+
+    modLocalRuntime("net.merchantpug.mc267125:MC-267125:1.0.0")
 
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     implementation project(":common")
