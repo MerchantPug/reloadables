@@ -3,7 +3,7 @@ import org.apache.tools.ant.filters.LineContains
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.41'
+    id 'net.neoforged.gradle.userdev' version '7.0.52'
     id 'java-library'
 }
 base {
